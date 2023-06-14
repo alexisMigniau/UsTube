@@ -2,7 +2,7 @@
 
 namespace Application\Model\User;
 
-require_once '../lib/database.php';
+require_once ('../lib/database.php');
 
 use Application\Lib\Database\Database;
 
@@ -19,6 +19,7 @@ class User
 class UserRepository
 {
     public Database $connection;
+    
     public string $tableName = "users";
 
     public function createUser(string $pseudo, string $password, string $email): bool
