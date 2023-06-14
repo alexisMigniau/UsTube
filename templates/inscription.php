@@ -3,18 +3,18 @@
 <form action="index.php?action=createUser" method="post">
    <div>
       <label for="pseudo">Pseudo</label><br />
-      <input type="text" id="pseudo" name="pseudo" />
+      <input type="text" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" />
    </div>
    <div>
       <label for="email">Email</label><br />
-      <input id="email" name="email"></input>
+      <input id="email" name="email" placeholder="Entrez votre email"></input>
    </div>
    <div>
       <label for="password">Mot de passe</label><br />
-      <input id="password" name="password"></input>
+      <input id="password" name="password" placeholder="Entrez votre mot de passe"></input>
    </div>
    <div>
-      <label for="passwordConfirm">Mot de passe</label><br />
+      <label for="passwordConfirm">Confirmer le Mot de passe</label><br />
       <input id="passwordConfirm" name="passwordConfirm"></input>
    </div>
    <div>

@@ -2,7 +2,7 @@
 
 namespace Application\Model\User;
 
-require_once ('../lib/database.php');
+require_once('../UsTube/lib/database.php');
 
 use Application\Lib\Database\Database;
 
@@ -14,21 +14,60 @@ class User
     public string $email;
     public int $creationDate;
     public string $img;
+
+    public static function validateInput(string $pseudo, string $password, string $email, string $confirmPassword)
+    {
+        $errors = [];
+
+        $pseudo = isset($pseudo) ? $pseudo : '';
+        $password = isset($password) ? $password : '';
+        $email = isset($email) ? $email : '';
+        $confirmPassword = isset($confirmPassword) ? $confirmPassword : '';
+
+        if (empty($pseudo)) {
+            $errors['pseudo'] = "Le pseudo est obligatoire";
+        }
+
+        if (empty($email)) {
+            $errors['email'] = "L'email est obligatoire";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = "L'email n'est pas valide";
+        }
+
+        if (empty($password)) {
+            $errors['password'] = "Le mot de passe est obligatoire";
+        }
+
+        if (empty($confirmPassword)) {
+            $errors['confirmPassword'] = "La confirmation du mot de passe est obligatoire";
+        } elseif ($confirmPassword != $password) {
+            $errors['confirmPassword'] = "La confirmation du mot de passe ne correspond pas";
+        }
+        if (empty($errors)) {
+            $user = new User();
+            $user->pseudo = $pseudo;
+            $user->password = $password;
+            $user->email = $email;
+            return $user;
+        } else {
+            return $errors;
+        }
+    }
 }
 
 class UserRepository
 {
     public Database $connection;
-    
+
     public string $tableName = "users";
 
-    public function createUser(string $pseudo, string $password, string $email): bool
+    public function createUser(User $user): bool
     {
 
         $statement = $this->connection->getConnection()->prepare(
             "INSERT INTO $this->tableName (pseudo, password, email) VALUES (?, ?, ?)"
         );
-        $affectedLines = $statement->execute([$pseudo, password_hash($password, PASSWORD_DEFAULT), $email]);
+        $affectedLines = $statement->execute([$user->pseudo, password_hash($user->password, PASSWORD_DEFAULT), $user->email]);
         return ($affectedLines > 0);
     }
 

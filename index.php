@@ -1,15 +1,24 @@
 <?php
 
-require_once 'controllers/createUser.php';
+require_once 'controllers/user/createUser.php';
 
-use Application\Controllers\createUser\createUser;
+use Application\Controllers\User\CreateUser\createUser;
 
-if (isset($_GET['action']) && $_GET['action'] !== '') {
-    if ($_GET['action'] === 'createUser') {
-        /* Renvoie Controller createUser */
+try {
+    if (isset($_GET['action']) && $_GET['action'] !== '') {
+        if ($_GET['action'] === 'createUser') {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                (new createUser())->receiveForm($_POST);
+            } else {
+                (new createUser())->sendForm();
+            }
+        } else {
+            throw new Exception('Error');
+        }
     } else {
-        echo 'Erreur 404 : la page souhaitée n\'existe pas.';
+        require('templates/homepage.php');
     }
-} else {
-    homepage();
+} catch (Exception $e) {
+    $errorMessage = $e->getMessage();
+    echo $errorMessage;
 }
