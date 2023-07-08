@@ -24,7 +24,7 @@ class createUser
         $success = $userRepository->createUser($validateUser);
 
         if (!$success) {
-            throw new \Exception("Impossible d\'ajouter l'utilisateur !");
+            throw new \Exception("Impossible d'ajouter l'utilisateur !");
         } else {
             require 'templates/homepage.php';
         }

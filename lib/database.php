@@ -4,14 +4,32 @@ namespace Application\Lib\Database;
 
 class Database
 {
-    public ?\PDO $database = null;
 
-    public function getConnection(): \PDO
+
+    static ?\PDO $database = null;
+
+    private function __construct()
     {
-        if ($this->database === null) {
-            $this->database = new \PDO('mysql:host=localhost;dbname=ustube;charset=utf8', 'root', '');
+    }
+
+    public static function getConnection(): \PDO
+    {
+        $host = "localhost";
+        $dbName = "ustube";
+        $userName = "root";
+        $password = "";
+
+        $bdd = "mysql:host=$host;dbname=$dbName;charset=utf8";
+        try {
+            if (is_null(self::$database)) {
+                self::$database = new \PDO($bdd, $userName, $password);
+            }
+        } catch (\PDOException $e) {
+            die("Erreur de connexion à la base de données : " . $e->getMessage() . " " . $e->getCode() . " " . $e->getFile() . " " . $e->getLine());
         }
 
-        return $this->database;
+        return self::$database;
     }
 }
+
+$db = Database::getConnection();

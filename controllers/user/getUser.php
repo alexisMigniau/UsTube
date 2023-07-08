@@ -2,7 +2,7 @@
 
 namespace Application\Controllers\User;
 
-require_once('../lib/database.php');
+require_once('../UsTube/lib/database.php');
 require_once('../models/user.php');
 
 use Application\Lib\Database\Database;
