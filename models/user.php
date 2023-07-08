@@ -2,7 +2,7 @@
 
 namespace Application\Model\User;
 
-require_once('../lib/database.php');
+require_once('./lib/database.php');
 
 use Application\Lib\Database\Database;
 

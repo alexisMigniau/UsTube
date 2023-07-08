@@ -22,6 +22,9 @@
    </div>
 </form>
 
-<?php $content = ob_get_clean(); ?>
+<?php
+$content = ob_get_clean();
+$title = "UsTube | Inscription";
+?>
 
 <?php require_once('layout.php') ?>
