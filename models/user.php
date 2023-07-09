@@ -12,7 +12,7 @@ class User
     public string $pseudo;
     public string $password;
     public string $email;
-    public int $creationDate;
+    public string $creationDate;
     public string $img;
 
     public static function validateInput(string $pseudo, string $password, string $email, string $confirmPassword)
@@ -74,7 +74,7 @@ class UserRepository
     public function getUser(int $identifier): User
     {
         $statement = $this->connection->getConnection()->prepare(
-            "SELECT id, pseudo, password, email, DATE_FORMAT(date_created, 'd/m/Y') AS creation_date FROM $this->tableName WHERE id = ?"
+            "SELECT id, pseudo, password, email, date_created AS creation_date FROM $this->tableName WHERE id = ?"
         );
         $statement->execute([$identifier]);
 

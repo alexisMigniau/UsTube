@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <header>
-    <a href="homepage.php" class="homepage"><!-- image du logo --></a>
+    <a href="index.php" class="homepage"><img src="./assets/images/logo.png" alt="Logo du site UsTube"></a>
     <button type="submit"><!-- menu burger --></button>
 </header>
 

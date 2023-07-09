@@ -11,6 +11,7 @@ if (!isset($header)) {
 <head>
     <meta charset="utf-8" />
     <title><?= $title ?></title>
+    <link rel="icon" href="./assets/images/favicon.ico" />
     <link href="style.css" rel="stylesheet" />
 </head>
 

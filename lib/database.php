@@ -8,7 +8,7 @@ class Database
 
     static ?\PDO $database = null;
 
-    private function __construct()
+    public function __construct()
     {
     }
 
