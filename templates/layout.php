@@ -12,7 +12,8 @@ if (!isset($header)) {
     <meta charset="utf-8" />
     <title><?= $title ?></title>
     <link rel="icon" href="./assets/images/favicon.ico" />
-    <link href="style.css" rel="stylesheet" />
+    <link href="./assets/style/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/3f79e37ece.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -20,6 +21,7 @@ if (!isset($header)) {
     <?= $content ?>
     <?= $footer ?>
 
+    <script src="./assets/js/menuBurger.js" defer></script>
     <script src="script.js" defer></script>
 </body>
 
