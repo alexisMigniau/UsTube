@@ -1,18 +1,13 @@
-<?php require('header.php') ?>
-
 <?php ob_start(); ?>
-
-<h1>Profil Utilisateur :</h1>
-<h2>Pseudo : </h2>
-<?= $user->pseudo; ?>
-<h2>Email : </h2>
-<?= $user->email; ?>
-<h2>Date de création : </h2>
-<?= $user->creationDate; ?>
-
-
-
-
+<div class="cardProfil">
+    <h2>Profil Utilisateur :</h2>
+    <h3>Pseudo : </h3>
+    <?= $user->pseudo; ?>
+    <h3>Email : </h3>
+    <?= $user->email; ?>
+    <h3>Date de création : </h3>
+    <?= $user->creationDate; ?>
+</div>
 <?php
 $content = ob_get_clean();
 $title = "UsTube | Profil";

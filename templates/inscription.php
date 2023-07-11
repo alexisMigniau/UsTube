@@ -7,15 +7,15 @@
    </div>
    <div>
       <label for="email">Email</label><br />
-      <input id="email" name="email" placeholder="Entrez votre email"></input>
+      <input type="email" id="email" name="email" placeholder="Entrez votre email"></input>
    </div>
    <div>
       <label for="password">Mot de passe</label><br />
-      <input id="password" name="password" placeholder="Entrez votre mot de passe"></input>
+      <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe"></input>
    </div>
    <div>
       <label for="passwordConfirm">Confirmer le Mot de passe</label><br />
-      <input id="passwordConfirm" name="passwordConfirm"></input>
+      <input type="password" id="passwordConfirm" name="passwordConfirm"></input>
    </div>
    <div>
       <input type="submit" />

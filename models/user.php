@@ -71,6 +71,14 @@ class UserRepository
         return ($affectedLines > 0);
     }
 
+    public function connexionUser(User $user)
+    {
+        $statement = $this->connection->getConnection()->prepare(
+            "SELECT * FROM users WHERE email = ?"
+        );
+        $affectedLines = $statement->execute([$user->pseudo, password_hash($user->password, PASSWORD_DEFAULT), $user->email]);
+    }
+
     public function getUser(int $identifier): User
     {
         $statement = $this->connection->getConnection()->prepare(

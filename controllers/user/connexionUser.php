@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Controllers\User\CreateUser;
+namespace Application\Controllers\User\ConnexionUser;
 
 require_once('lib/database.php');
 require_once('models/user.php');
@@ -9,7 +9,7 @@ use Application\Lib\Database\Database;
 use Application\Model\User\UserRepository;
 use Application\Model\User\User;
 
-class createUser
+class connexionUser
 {
     public function receiveForm(array $input)
     {
@@ -25,8 +25,7 @@ class createUser
         if (!$success) {
             throw new \Exception("Impossible d'ajouter l'utilisateur !");
         } else {
-            header('Location: ./index.php');
-            exit();
+            require 'templates/homepage.php';
         }
     }
 
