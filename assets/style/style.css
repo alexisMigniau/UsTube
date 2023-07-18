@@ -147,10 +147,17 @@ nav a:focus {
 }
 
 .cardProfil {
-    margin: 10px auto 0 auto;
+    margin: 25px 25px 0 0;
     border: #55A5C4 1px solid;
     border-radius: 10px;
     width: 20%;
     text-align: center;
     padding: 15px;
+}
+
+.AllVideos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }

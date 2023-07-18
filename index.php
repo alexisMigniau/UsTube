@@ -2,14 +2,14 @@
 
 require_once 'controllers/user/createUser.php';
 require_once 'controllers/user/getUser.php';
-require_once 'controllers/video/getVideo.php';
+require_once 'controllers/video/getAllVideos.php';
 
 
 
 
 use Application\Controllers\User\CreateUser\createUser;
 use Application\Controllers\User\getUser;
-use Application\Controllers\Video\getVideo;
+use Application\Controllers\Video\getAllVideos;
 
 
 
@@ -32,7 +32,7 @@ try {
             throw new Exception('Error');
         }
     } else {
-        (new getVideo())->execute(1);
+        (new getAllVideos())->execute();
     }
 } catch (Exception $e) {
     $errorMessage = $e->getMessage();
