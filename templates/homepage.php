@@ -3,10 +3,10 @@
     <div class="AllVideos">
         <?php foreach ($videos as $video) : ?>
             <div class="cardProfil">
+                <img src="<?= $video->img; ?>">
                 <h2>
                     <?= $video->title; ?>
                 </h2>
-                <img src="<?= $video->img; ?>">
                 <p><?= $video->description ?></p>
                 <p>Le
                     <?= $video->creationDate; ?>
